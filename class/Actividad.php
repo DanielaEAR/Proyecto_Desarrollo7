@@ -22,7 +22,7 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
         if(!$resultado){
-            echo "Fallo al consultar las noticias";
+            echo "Fallo al consultar las actividades";
         }else{
             return $resultado;
             $resultado->close();
@@ -30,28 +30,58 @@ class Actividad extends modeloCredencialesBD{
         }
     }
     public function filtrar_actividades($campo, $valor){
-        $instruccion = "CALL sp_('".$campo."','".$valor."')";
+        $instruccion = "CALL filtrarActividades('".$campo."','".$valor."')";
         $consulta = $this->_db->query($instruccion);
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
         if(!$resultado){
-            echo "Fallo al consultar las noticias";
+            echo "Fallo al consultar las actividades";
         }else{
             return $resultado;
             $resultado->close();
             $this->_db->close();
         }
     }
-    public function registrarAct(){
+    public function registrarAct($titulo, $fecha, $hora, $ubicacion, $email, $repetir, $tipoAct){
+        $instruccion = "CALL registratAct('".$titulo."','".$fecha."','".$hora."','".$ubicacion."','".$email."','".$repetir."','".$tipoAct."')";
+        $consulta = $this->_db->query($instruccion);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
+        if(!$resultado){
+            echo "Fallo al consultar las actividades";
+        }else{
+            return $resultado;
+            $resultado->close();
+            $this->_db->close();
+        }
     }
-    public function editarAct(){
+    public function editarAct($id, $titulo, $fecha, $hora, $ubicacion, $email, $repetir, $tipoAct){
+        $instruccion = "CALL editartAct(".$id.",'".$titulo."','".$fecha."','".$hora."','".$ubicacion."','".$email."','".$repetir."','".$tipoAct."')";
+        $consulta = $this->_db->query($instruccion);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
+        if(!$resultado){
+            echo "Fallo al consultar las actividades";
+        }else{
+            return $resultado;
+            $resultado->close();
+            $this->_db->close();
+        }
     }
-    public function eliminarAct(){
+    public function eliminarAct($idAct){
+        $instruccion = "CALL eliminarAct(".$idAct.")";
+        $consulta = $this->_db->query($instruccion);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
+        if(!$resultado){
+            echo "Fallo al consultar las actividades";
+        }else{
+            return $resultado;
+            $resultado->close();
+            $this->_db->close();
+        }
     }
-
+    
 }
 
 ?>
