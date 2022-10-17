@@ -42,6 +42,19 @@ class Actividad extends modeloCredencialesBD{
             $this->_db->close();
         }
     }
+    public function consultarTodo(){
+        $instruccion = "CALL mostrar_todo_act()";
+        $consulta = $this->_db->query($instruccion);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+        if(!$resultado){
+            echo "Fallo al consultar las actividades";
+        }else{
+            return $resultado;
+            $resultado->close();
+            $this->_db->close();
+        }
+    }
     public function consultarUnaAct($id){
         $instruccion = "CALL consultar_una_act($id)";
         $consulta = $this->_db->query($instruccion);
@@ -101,6 +114,19 @@ class Actividad extends modeloCredencialesBD{
 
         if(!$resultado){
             echo "Fallo al consultar las actividades";
+        }else{
+            return $resultado;
+            $resultado->close();
+            $this->_db->close();
+        }
+    }
+    public function  mostrar_reporte($condiCampo, $valorF){
+        $instruccion = "CALL mostrarReportes('".$condiCampo."', ".$valorF.")";
+        $consulta = $this->_db->query($instruccion);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+        if(!$resultado){
+            echo "Fallo al consultar reporte de las actividades";
         }else{
             return $resultado;
             $resultado->close();

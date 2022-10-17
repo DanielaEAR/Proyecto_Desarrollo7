@@ -15,11 +15,13 @@
     require_once('class/Actividad.php');
 ?>
         <!-- Menu de la aplicacion -->
-    <ul>
-        <li><a href="Inicio.php">Inicio</a></li>
-        <li><a href="GestionActividades/ProyectPrincipal.php">Mis Actividades</a></li>
-        <li><a href="ReporteActividades/ReporteFiltro.php">Reportes</a></li>
-    </ul>
+    <nav>
+        <ul>
+            <li><a href="Inicio.php">Inicio</a></li>
+            <li><a href="GestionActividades/ProyectPrincipal.php">Mis Actividades</a></li>
+            <li><a href="ReporteActividades/ReporteFiltro.php">Reportes</a></li>
+        </ul>
+    </nav>
     <br>
     <h2>Resumen De Mis Actividades de Hoy</h2><br>
     <?php

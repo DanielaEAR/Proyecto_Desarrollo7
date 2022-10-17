@@ -13,11 +13,13 @@
     require_once('../class/Actividad.php');
 ?>   
     <!-- Menu de la aplicacion -->
-<ul>
-  <li><a href="../Inicio.php">Inicio</a></li>
-  <li><a href="ProyectPrincipal.php">Mis actividades</a></li>
-  <li><a href="../ReporteActividades/ReporteFiltro.php">Reportes</a></li>
-</ul>
+    <nav></nav>
+        <ul>
+        <li><a href="../Inicio.php">Inicio</a></li>
+        <li><a href="ProyectPrincipal.php">Mis actividades</a></li>
+        <li><a href="../ReporteActividades/ReporteFiltro.php">Reportes</a></li>
+        </ul>
+    </nav>
 <div class="col-md-8">
     <h1>Mis Actividades</h1>
     <table class="table">

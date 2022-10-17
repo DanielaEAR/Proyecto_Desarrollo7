@@ -16,12 +16,13 @@
     $valorRes = 0;
 ?>
     <!-- Menu de la aplicacion -->
-<ul>
-<li><a href="../Inicio.php.php">Inicio</a></li>
-  <li><a href="ProyectPrincipal.php">Mis Actividades</a></li>
-  <li><a href="../ReporteActividades/ReporteFiltro.php">Reportes</a></li>
-</ul>
-
+    <nav>
+        <ul>
+        <li><a href="../Inicio.php.php">Inicio</a></li>
+        <li><a href="ProyectPrincipal.php">Mis Actividades</a></li>
+        <li><a href="../ReporteActividades/ReporteFiltro.php">Reportes</a></li>
+        </ul>
+    </nav>
  <!-- Formulario de las actividades -->
 <div class="container mt-5">
     <div class="row">
