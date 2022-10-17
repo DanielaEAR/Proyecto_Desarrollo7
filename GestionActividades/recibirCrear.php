@@ -1,6 +1,12 @@
 <?php
 require_once('../class/Actividad.php');
 
+    if($_REQUEST['rs'] == "si"){
+        $valorRes = "23:53";
+    }else{
+        $valorRes = $_REQUEST['horaR'];
+    }   
+
     if(array_key_exists('titulo', $_POST)  && array_key_exists('fecha', $_POST) &&
        array_key_exists('hora', $_POST)  && array_key_exists('ubicacion', $_POST) &&
        array_key_exists('email', $_POST) && array_key_exists('tiposA', $_POST)){

@@ -16,7 +16,7 @@
 <ul>
   <li><a href="../Inicio.php">Inicio</a></li>
   <li><a href="ProyectPrincipal.php">Mis actividades</a></li>
-  <li><a href="../ReporteActividades/ReporteFiltro.php">Reportses</a></li>
+  <li><a href="../ReporteActividades/ReporteFiltro.php">Reportes</a></li>
 </ul>
 <div class="col-md-8">
     <h1>Mis Actividades</h1>

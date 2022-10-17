@@ -11,7 +11,7 @@
     <!-- Integración de la clases -->
 <?php
     require_once('../class/TipoActividad.php');
-    $valorRes = 0;
+    //$valorRes = 0;
 ?>
     <!-- Menu de la aplicacion -->
 <ul>
@@ -35,20 +35,12 @@
                 <!-- radio button para repetir la actividad -->
                 <b><p>Desea repetir todo el dia:</p></b>
                     <!-- seleccion Si -->
-                    <input id=res type="radio" id="si" name="rs" value="si">SI<br>
+                    <input type="radio" id="si" name="rs" value="si">SI<br>
                     <!-- seleccion NO -->
-                    <input id=res type="radio" id="no" name="rs" value="no">NO<br><br>
+                    <input type="radio" id="no" name="rs" value="no">NO<br><br>
                     <!-- fecha 24 horas -->     
-                    <input id='h' type='time' name='horaR' value="23:53:00"> <br> <br>
-                    <?php
-                        if(array_key_exists('rs', $_POST)){
-                            if($_REQUEST['rs'] == "si"){
-                                $valorRes = "23:53";
-                            }else{
-                                $valorRes = $_REQUEST['horaR'];
-                            }   
-                        }
-                    ?>
+                    <input type='time' name='horaR' value="23:53:00"> <br> <br>
+
                 <!-- Select para elegir el tipo de actividad -->
                 <b><p>Tipo de Actividad</p></b>
                 <SELECT name="tiposA">
