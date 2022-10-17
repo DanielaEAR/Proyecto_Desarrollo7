@@ -15,9 +15,9 @@
 ?>
     <!-- Menu de la aplicacion -->
 <ul>
-  <li><a href="ResumenActividad.php">Inicio</a></li>
+  <li><a href="../Inicio.php.php">Inicio</a></li>
   <li><a href="ProyectPrincipal.php">Mis Actividades</a></li>
-  <li><a href="Reporte.php">Reportes</a></li>
+  <li><a href="../ReporteActividades/ReporteFiltro.php">Reportes</a></li>
 </ul>
 
  <!-- Formulario de las actividades -->

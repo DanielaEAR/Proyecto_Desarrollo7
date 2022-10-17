@@ -11,6 +11,7 @@
     <!-- Integración de la clases -->
 <?php
     require_once('../class/TipoActividad.php');
+    require_once('../class/Actividad.php');
     $valorRes = 0;
 ?>
     <!-- Menu de la aplicacion -->
@@ -26,14 +27,29 @@
         <div class="col-md-3">
             <h1>Agenda de Actividades</h1>
             <form name="registro" action="Crear.php" method="POST">
-                
-                <input type="text" name="titulo"  placeholder="Título de la Actividad"><br><br>
+            <?php
+                $obj_buscAct = new Actividad();
+                $buscAct = $obj_buscAct->consultarUnaAct($_GET['id']);
+                $nfilasA = count($buscAct);
+
+                if($nfilasA > 0){
+                    foreach($buscAct as $resultAc){
+                        print("<input type='text' name='titulo'  value='".$resultAc['titulo']."'><br><br>");
+                        print("<input type='date' name='fecha'  value='".$resultAc['fecha']."'><br><br>");
+                        print("<input type='time' name='hora' value='".$resultAc['hora']."'> <br> <br>");
+                        print("<input type='text' name='ubicacion' value='".$resultAc['ubicacion']."'><br><br>");
+                        print("<input type='text' name='email' value='".$resultAc['email']."'><br><br>");
+                        print("<b><p>Desea repetir todo el dia:</p></b>");
+                    } 
+                }            
+            ?>
+                <!--<input type="text" name="titulo"  placeholder="Título de la Actividad"><br><br>
                 <input type="date" name="fecha"  placeholder="Fecha"><br><br>
                 <input type='time' name='hora' value="00:00:00" placeholder="Hora"> <br> <br>
                 <input type="text" name="ubicacion" placeholder="Ubicación"><br><br>
-                <input type="text" name="email"  placeholder="Email"><br><br>
-                <!-- radio button para repetir la actividad -->
-                <b><p>Desea repetir todo el dia:</p></b>
+                <input type="text" name="email"  placeholder="Email"><br><br>-->
+                <!-- radio button para repetir la actividad 
+                <b><p>Desea repetir todo el dia:</p></b> -->
                     <!-- seleccion Si -->
                     <input id=res type="radio" id="si" name="rs" value="si">SI<br>
                     <!-- seleccion NO -->

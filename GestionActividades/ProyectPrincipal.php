@@ -8,42 +8,47 @@
     <title>Agenda Estudiantil</title>
 </head>
 <body>
-    
+    <!-- Integración de la clases -->
+<?php
+    require_once('../class/Actividad.php');
+?>   
     <!-- Menu de la aplicacion -->
 <ul>
-  <li><a href="ResumenActividad.php">Inicio</a></li>
-  <li><a href="#">Mis actividades</a></li>
-  <li><a href="#">Reportses</a></li>
+  <li><a href="../Inicio.php">Inicio</a></li>
+  <li><a href="ProyectPrincipal.php">Mis actividades</a></li>
+  <li><a href="../ReporteActividades/ReporteFiltro.php">Reportses</a></li>
 </ul>
 <div class="col-md-8">
+    <h1>Mis Actividades</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Titulo</th>
+            </tr>
+        </thead>
+        <tbody>  
+        <?php
+            $obj_todasAc = new Actividad();
+            $todasAct = $obj_todasAc->consultarTodasAct();
+            $nfilasT=count($todasAct);
 
-<h1>Tareas pendientes</h1> <br> <br>
-
-<table class="table">
-
-    <thead>
-
-        <tr>
-            <th>Titulo</th>
-        </tr>
-
-    </thead>
-
-    <tbody>
-       
-        <tr>
-            <th>hector</th>
-            <th><a href="editar.php">Editar</a></th>
-            <th><a href="delete.php">Eliminar</a></th>   
-        </tr>
-    </tbody>
-
-</table>
-
+            if($nfilasT > 0){
+                foreach($todasAct as $resTodas){
+                    print("<tr>");
+                    print("<th>".$resTodas['id_actividad']."</th>");
+                    print("<th>".$resTodas['titulo']."</th>");
+                    $idA = $resTodas['id_actividad'];
+                    print("<th><a href='Editar.php?id=$idA'>Editar</a></th>");
+                    print("<th><a href='Eliminar.php?id=$idA'>Eliminar</a></th>");
+                    print("</tr>");
+                } 
+            }
+        ?>
+        </tbody>
+    </table>
 </div>
-
-</div>
-<br><br>
+<br><br><br>
 <button><a href="Crear.php">CREAR ACTIVIDAD</a></button>
 </body>
 </html>
