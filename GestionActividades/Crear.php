@@ -11,11 +11,11 @@
     <!-- Integración de la clases -->
 <?php
     require_once('../class/TipoActividad.php');
-    //$valorRes = 0;
+    $valorRes = 0;
 ?>
     <!-- Menu de la aplicacion -->
 <ul>
-  <li><a href="../Inicio.php.php">Inicio</a></li>
+  <li><a href="../Inicio.php">Inicio</a></li>
   <li><a href="ProyectPrincipal.php">Mis Actividades</a></li>
   <li><a href="../ReporteActividades/ReporteFiltro.php">Reportes</a></li>
 </ul>
