@@ -8,6 +8,6 @@
     <title>Agenda Estudiantil</title>
 </head>
 <body>
-    <h1> Gestionar Mis Actividades </h1>
+
 </body>
 </html>

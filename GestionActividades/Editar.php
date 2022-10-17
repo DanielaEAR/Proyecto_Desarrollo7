@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
-    <title>Agenda Estudiantil</title>
+    <title>Edición de Actividades</title>
 </head>
 <body>
     <!-- Integración de la clases -->
 <?php
-    require_once('class/Actividad.php');
-    require_once('class/TipoActividad.php');
+    require_once('../class/TipoActividad.php');
     $valorRes = 0;
 ?>
     <!-- Menu de la aplicacion -->
@@ -27,7 +26,7 @@
         <div class="col-md-3">
             <h1>Agenda de Actividades</h1>
             <form name="registro" action="Crear.php" method="POST">
-               <!-- <input type="hidden" name="id"> -->
+                
                 <input type="text" name="titulo"  placeholder="Título de la Actividad"><br><br>
                 <input type="date" name="fecha"  placeholder="Fecha"><br><br>
                 <input type='time' name='hora' value="00:00:00" placeholder="Hora"> <br> <br>
@@ -77,25 +76,6 @@
         </div>
     </div>
 </div>
-<?php
-    if(array_key_exists('titulo', $_POST)  && array_key_exists('fecha', $_POST) &&
-       array_key_exists('hora', $_POST)  && array_key_exists('ubicacion', $_POST) &&
-       array_key_exists('email', $_POST) && array_key_exists('tiposA', $_POST)){
-
-        $obj_act = new Actividad();
-        $registrar = $obj_act->registrarAct($_REQUEST['titulo'], $_REQUEST['fecha'], $_REQUEST['hora'], $_REQUEST['ubicacion'], 
-                                            $_REQUEST['email'], $valorRes, $_REQUEST['tiposA']);
-        if($registrar > 0){
-        //Se ingresó correctamente
-            print("<script> alert('Se ingresó correctamente'); </script>");
-            //Reedirecciona hacia la página principal de gestión de actividades
-            print("<script type='text/javascript'> window.location.href = 'ProyectPrincipal.php'; </script>");
-        }else{
-            //No se ingresó correctamente
-            print("<script> alert('Revisar Campos'); </script>");
-        }
-    }
-?>
 
 </body>
 </html>
