@@ -45,10 +45,10 @@ class Actividad extends modeloCredencialesBD{
     public function registrarAct($titulo, $fecha, $hora, $ubicacion, $email, $repetir, $tipoAct){
         $instruccion = "CALL registratAct('".$titulo."','".$fecha."','".$hora."','".$ubicacion."','".$email."','".$repetir."','".$tipoAct."')";
         $consulta = $this->_db->query($instruccion);
-        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+        $resultado = $consulta;
 
         if(!$resultado){
-            echo "Fallo al consultar las actividades";
+            echo "Fallo al registrar las actividades <br>";
         }else{
             return $resultado;
             $resultado->close();
@@ -58,10 +58,10 @@ class Actividad extends modeloCredencialesBD{
     public function editarAct($id, $titulo, $fecha, $hora, $ubicacion, $email, $repetir, $tipoAct){
         $instruccion = "CALL editartAct(".$id.",'".$titulo."','".$fecha."','".$hora."','".$ubicacion."','".$email."','".$repetir."','".$tipoAct."')";
         $consulta = $this->_db->query($instruccion);
-        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+        $resultado = $consulta;
 
         if(!$resultado){
-            echo "Fallo al consultar las actividades";
+            echo "Fallo al editar las actividades";
         }else{
             return $resultado;
             $resultado->close();
@@ -74,7 +74,7 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
         if(!$resultado){
-            echo "Fallo al consultar las actividades";
+            echo "Fallo al eliminar la actividade";
         }else{
             return $resultado;
             $resultado->close();
