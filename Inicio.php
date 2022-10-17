@@ -4,31 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/estiloA.css">
+    <link rel="stylesheet" type="text/javascript" href="acordeon.js">
+    
     <title>Resumen De Actividades</title>
 </head>
 <body>
-<div id="container-main">
-    <h1>Mejores Jugadores Liga BBVA</h1>
+        <!-- Integración de la clases -->
+<?php
+    require_once('class/Actividad.php');
+?>
+        <!-- Menu de la aplicacion -->
+    <ul>
+        <li><a href="Inicio.php">Inicio</a></li>
+        <li><a href="GestionActividades/ProyectPrincipal.php">Mis Actividades</a></li>
+        <li><a href="ReporteActividades/ReporteFiltro.php">Reportes</a></li>
+    </ul>
+    <br>
+    <h2>Resumen De Mis Actividades de Hoy</h2><br>
+    <?php
+        $obj_resuAct = new Actividad();
+        $resumAct = $obj_resuAct->mostrar_actividades();
+        $nfilas=count($resumAct);
 
-    <div class="accordion-container">
-        <a href="#" class="accordion-titulo">Messi<span class="toggle-icon"></span></a>
-        <div class="accordion-content">
-            <img src="http://e0.365dm.com/15/05/660x350/champions-league-barcelona-bayern-munich-soccer-messi_3299830.jpg?20150506214236" alt=""/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        if($nfilas > 0){
+            foreach($resumAct as $resultado){
+                print("<details>");
+                print("<summary>".$resultado['titulo']."</summary>");
+                print("<p>Más detalles sobre la Actividad:</p>");
+                print("<p>Fecha: ".$resultado['fecha']."</p>");
+                print("<p>Hora: ".$resultado['hora']."</p>");
+                print("<p>Ubicación: ".$resultado['ubicacion']."</p>");
+                print("<p>Email: ".$resultado['email']."</p>");
+                print("<p>Repetir/No repetir: ".$resultado['repetirAct']."</p>");
+                print("<p>Tipo de Actividad: ".$resultado['nombreAct']."</p>");
+                print("</details>");
+            }        
+        }else{
+            print("No hay Tipo de Actividades el Día de Hoy <br>");
+        }
+    ?>
 
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>  
-    </div>
-    
-    <div class="accordion-container">
-        <a href="#" class="accordion-titulo">Cristiano<span class="toggle-icon"></span></a>
-        <div class="accordion-content">
-            <img src="http://www.abc.es/Media/201301/10/cristiano-ronaldo--644x362.jpg" alt=""/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-    </div>
-</div>
 </body>
 </html>
