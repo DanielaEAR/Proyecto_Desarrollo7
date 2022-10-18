@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-md-3">
             <h1>Agenda de Actividades</h1>
-            <form name="registro" action="recibirEditar.php" method="POST">
+            <form class="registro" name="registro" action="recibirEditar.php" method="POST">
             <?php
                 $obj_buscAct = new Actividad();
                 $buscAct = $obj_buscAct->consultarUnaAct($id);
@@ -42,7 +42,7 @@
                         print("<input type='date' name='fecha'  value='".$resultAc['fecha']."'><br><br>");
                         print("<input type='time' name='hora' value='".$resultAc['hora']."'> <br> <br>");
                         print("<input type='text' name='ubicacion' value='".$resultAc['ubicacion']."'><br><br>");
-                        print("<input type='text' name='email' value='".$resultAc['email']."'><br><br>");
+                        print("<input type='text' name='email' value='".$resultAc['email']."'><br><br><hr>");
                         print("<b><p>Desea repetir todo el dia:</p></b>");
                         if($resultAc['repetirAct'] == "23:59:00"){
                             print("<input id=res type='radio' id='si' name='rs' value='si' checked>SI<br>");
@@ -57,7 +57,7 @@
                     } 
                 }           
             ?>
-            
+                <hr>
                 <!-- Select para elegir el tipo de actividad -->
                 <b><p>Tipo de Actividad</p></b>
                 <SELECT name="tiposA">
@@ -82,13 +82,13 @@
                             print("No hay Tipo de Actividades Disponibles <br>");
                         }
                     ?>
-                <br>
+                <br><br>
                 <!-- Validar que los campos no estén vacíos -->
-                <input type="submit" value="ACTUALIZAR"><br><br>
+                <input class="btn" type="submit" value="ACTUALIZAR"><br><br>
             </form>
         </div>
     </div>
 </div>
-
+<br><br><br><br>
 </body>
 </html>

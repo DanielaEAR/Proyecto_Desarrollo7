@@ -107,24 +107,11 @@ class Actividad extends modeloCredencialesBD{
             $this->_db->close();
         }
     }
-    public function filtrar_actividades($campo, $valor){
-        $instruccion = "CALL filtrarActividades('".$campo."','".$valor."')";
+    public function  mostrar_reporte($condiCampo, $valorF, $valorT){
+        $instruccion = "CALL mostrarReportes('".$condiCampo."', ".$valorF.", ".$valorT.");";
         $consulta = $this->_db->query($instruccion);
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
-
-        if(!$resultado){
-            echo "Fallo al consultar las actividades";
-        }else{
-            return $resultado;
-            $resultado->close();
-            $this->_db->close();
-        }
-    }
-    public function  mostrar_reporte($condiCampo, $valorF){
-        $instruccion = "CALL mostrarReportes('".$condiCampo."', ".$valorF.")";
-        $consulta = $this->_db->query($instruccion);
-        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
-
+    
         if(!$resultado){
             echo "Fallo al consultar reporte de las actividades";
         }else{

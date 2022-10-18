@@ -28,13 +28,15 @@
     <div class="row">
         <div class="col-md-3">
             <h1>Agenda de Actividades</h1>
-            <form name="registro" action="recibirCrear.php" method="POST">
+            
+            <form class="registro" name="registro" action="recibirCrear.php" method="POST">
                <!-- <input type="hidden" name="id"> -->
                 <input type="text" name="titulo"  placeholder="Título de la Actividad"><br><br>
                 <input type="date" name="fecha"  placeholder="Fecha"><br><br>
                 <input type='time' name='hora' value="00:00:00" placeholder="Hora"> <br> <br>
                 <input type="text" name="ubicacion" placeholder="Ubicación"><br><br>
                 <input type="text" name="email"  placeholder="Email"><br><br>
+                <hr>
                 <!-- radio button para repetir la actividad -->
                 <b><p>Desea repetir todo el dia:</p></b>
                     <!-- seleccion Si -->
@@ -43,7 +45,7 @@
                     <input type="radio" id="no" name="rs" value="no">NO<br><br>
                     <!-- fecha 24 horas -->     
                     <input type='time' name='horaR' value="23:53:00"> <br> <br>
-
+                <hr>
                 <!-- Select para elegir el tipo de actividad -->
                 <b><p>Tipo de Actividad</p></b>
                 <SELECT name="tiposA">
@@ -64,13 +66,13 @@
                             print("No hay Tipo de Actividades Disponibles <br>");
                         }
                     ?>
-                <br>
+                <br><br>
                 <!-- Validar que los campos no estén vacíos -->
-                <input type="submit" value="AGREGAR"><br><br>
+                <input class="btn" type="submit" value="AGREGAR"><br><br>
             </form>
         </div>
     </div>
 </div>
-
+<br><br><br><br>
 </body>
 </html>

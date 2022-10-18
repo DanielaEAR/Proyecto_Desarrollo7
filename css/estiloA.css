@@ -118,6 +118,13 @@ details{
     padding: 8px;
     width: 80%;
 }
+/*Crear actividades*/
+.col-md-3{
+    margin-left: 50px;
+}
+.registro{
+    padding-top: 20px;
+}
 /*Footer*/
 .foot{
     background-color: black;
