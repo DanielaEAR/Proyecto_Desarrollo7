@@ -46,14 +46,13 @@
                 ?>
         de Actividad o por 
         <SELECT name="campos">
-            <OPTION value="Tipo" SELECTED>Fecha
-            <OPTION value="DAY">Día
+            <OPTION value="DAY" SELECTED>Día
             <OPTION value="WEEKOFYEAR">Semana
             <OPTION value="MONTH">Mes
             <OPTION value="YEAR">Año
         </SELECT>
         -
-        <input type="number" name="fechaValor"> 
+        <input type="number" name="fechaValor" value="0"> 
         <input name="ConsultarFiltro" value="Filtrar Datos" type="submit"/>
         <input name="ConsultarTodos" value="Ver Todos" type="submit"/>
         </p>
@@ -70,12 +69,12 @@
         }
         if(array_key_exists('ConsultarFiltro', $_POST)){
             $obj_repoAct = new Actividad();
-            $reporte = $obj_repoAct->mostrar_reporte($_REQUEST['campos'], $_REQUEST['fechaValor']);
+            $reporte = $obj_repoAct->mostrar_reporte($_REQUEST['campos'], $_REQUEST['fechaValor'], $_REQUEST['tiposA']);
         }
 
         $nfilas=count($reporte);
         if($nfilas == 0){
-            print("<script> alert('Valor de Fecha Incorrecto'); </script>");
+            print("<script> alert('Valor de Fecha/Tipo Incorrecto'); </script>");
             print("<script type='text/javascript'> window.location.href = 'ReporteFiltro.php'; </script>");
         }else{
 
