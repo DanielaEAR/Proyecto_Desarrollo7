@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/estiloA.css">
     <title>Reporte de Actividades</title>
 </head>
 <body>
 <?php
     require_once('../class/Actividad.php');
+    require_once('../class/TipoActividad.php');
+    $valorRes = 0;
 ?>
         <!-- Menu de la aplicacion -->
     <nav>
@@ -18,20 +21,44 @@
             <li><a href="ReporteFiltro.php">Reportes</a></li>
         </ul>
     </nav>
-    <Form name="Formfiltro" method="post" action="ReporteFiltro.php">
-        <br/>
-        Filtrar Por: 
+    <br>
+    <h2 class="titulos">Mis Reportes</h2><br>
+    <div class="contenedor-filtro">
+        <form name="Formfiltro" method="post" action="ReporteFiltro.php">
+        <p>Filtrar por
+            <SELECT name="tiposA">
+                <OPTION value="0" SELECTED>Tipo
+                <?php
+                    $obj_tipoA = new TipoActividad();
+                    $tipoA = $obj_tipoA->consultar_tiposAct();
+                    $nfilas=count($tipoA);
+
+                    if($nfilas > 0){
+                        foreach($tipoA as $resultado){
+                            print("<OPTION value='".$resultado['id_tipoAct']."'>".$resultado['nombreAct']."<br>");
+                        }             
+                    ?>
+            </SELECT>
+                <?php
+                    }else{
+                        print("No hay Tipo de Actividades Disponibles <br>");
+                    }
+                ?>
+        de Actividad o por 
         <SELECT name="campos">
-            <OPTION value="DAY" SELECTED>Día
+            <OPTION value="Tipo" SELECTED>Fecha
+            <OPTION value="DAY">Día
             <OPTION value="WEEKOFYEAR">Semana
             <OPTION value="MONTH">Mes
             <OPTION value="YEAR">Año
         </SELECT>
-        con la fecha de
+        -
         <input type="number" name="fechaValor"> 
         <input name="ConsultarFiltro" value="Filtrar Datos" type="submit"/>
         <input name="ConsultarTodos" value="Ver Todos" type="submit"/>
+        </p>
     </Form>
+    </div>
     <br/>
     <?php
         $obj_repoAct = new Actividad();
@@ -53,29 +80,30 @@
         }else{
 
     ?>
-    <TABLE>
-        <TR>
-            <TH>Titulo</TH>
-            <TH>Fecha</TH>
-            <TH>Hora</TH>
-            <TH>Ubicación</TH>
-            <TH>Email</TH>
-            <TH>Repetir Actividad</TH>
-            <TH>Tipo de Actividad</TH>
+    <br>
+    <TABLE class="table">
+        <TR class='tr'>
+            <TH class='tr-id'>Titulo</TH>
+            <TH class='tr-id'>Fecha</TH>
+            <TH class='tr-id'>Hora</TH>
+            <TH class='tr-id'>Ubicación</TH>
+            <TH class='tr-id'>Email</TH>
+            <TH class='tr-id'>Repetir Actividad</TH>
+            <TH class='tr-id'>Tipo de Actividad</TH>
         </TR>
         <?php
 
             if($nfilas > 0){
                 foreach($reporte as $resultado){
-                    print("<TR>\n");
-                    print("<TD>".$resultado['titulo']."</TD>\n");
-                    print("<TD>".$resultado['fecha']."</TD>\n");
-                    print("<TD>".$resultado['hora']."</TD>\n");
-                    print("<TD>".$resultado['ubicacion']."</TD>\n");
-                    print("<TD>".$resultado['email']."</TD>\n");
-                    print("<TD>".$resultado['repetirAct']."</TD>\n");
-                    print("<TD>".$resultado['nombreAct']."</TD>\n");
-                    print("</TR\n");
+                    print("<TR class='tablaTr'>\n");
+                    print("<TD class='tablaTh'>".$resultado['titulo']."</TD>\n");
+                    print("<TD class='tablaTh'>".$resultado['fecha']."</TD>\n");
+                    print("<TD class='tablaTh'>".$resultado['hora']."</TD>\n");
+                    print("<TD class='tablaTh'>".$resultado['ubicacion']."</TD>\n");
+                    print("<TD class='tablaTh'>".$resultado['email']."</TD>\n");
+                    print("<TD class='tablaTh'>".$resultado['repetirAct']."</TD>\n");
+                    print("<TD class='tablaTh'>".$resultado['nombreAct']."</TD>\n");
+                    print("</TR>\n");
                 }        
             }else{
                 print("No hay Tipo de Actividades el Día de Hoy <br>");
@@ -83,6 +111,7 @@
         }
         ?>
     </TABLE>
+    <br><br><br><br>
 </body>
 </html>
 

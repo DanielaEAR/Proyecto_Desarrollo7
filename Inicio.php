@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/estiloA.css">
-    <link rel="stylesheet" type="text/javascript" href="acordeon.js">
     
     <title>Resumen De Actividades</title>
 </head>
@@ -23,7 +22,7 @@
         </ul>
     </nav>
     <br>
-    <h2>Resumen De Mis Actividades de Hoy</h2><br>
+    <h2 class="titulos">Resumen De Mis Actividades</h2><br>
     <?php
         $obj_resuAct = new Actividad();
         $resumAct = $obj_resuAct->mostrar_actividades();
@@ -32,8 +31,8 @@
         if($nfilas > 0){
             foreach($resumAct as $resultado){
                 print("<details>");
-                print("<summary>".$resultado['titulo']."</summary>");
-                print("<p>Más detalles sobre la Actividad:</p>");
+                print("<summary class='tituloAct'>".$resultado['titulo']."</summary><br>");
+                print("<h4>Más detalles sobre la Actividad:</h4>");
                 print("<p>Fecha: ".$resultado['fecha']."</p>");
                 print("<p>Hora: ".$resultado['hora']."</p>");
                 print("<p>Ubicación: ".$resultado['ubicacion']."</p>");
@@ -48,4 +47,9 @@
     ?>
 
 </body>
+<footer>
+        <div class="foot"> 
+
+        </div>
+</footer>
 </html>
