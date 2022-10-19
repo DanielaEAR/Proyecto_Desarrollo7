@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
     <title>Creacion de Actividades</title>
 </head>
 <body>
@@ -14,9 +14,9 @@
     $valorRes = 0;
 ?>
     <!-- Menu de la aplicacion -->
-<ul>
-  <li><a href="ResumenActividad.php">Inicio</a></li>
-  <li><a href="ProyectPrincipal.php">Mis Actividades</a></li>
+<ul class="menu">
+  <li><a href="../ResumenActividad.php">Inicio</a></li>
+  <li><a href="/ProyectPrincipal.php">Mis Actividades</a></li>
   <li><a href="Reporte.php">Reportes</a></li>
 </ul>
 
@@ -71,7 +71,10 @@
                     ?>
                 <br>
                 <!-- Validar que los campos no estén vacíos -->
-                <input type="submit" value="AGREGAR"><br><br>
+                <div class="btn">
+                    <input type="submit" value="AGREGAR"><br><br>
+                </div>
+               
             </form>
         </div>
     </div>
