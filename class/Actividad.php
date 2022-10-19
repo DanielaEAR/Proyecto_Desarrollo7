@@ -22,7 +22,9 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
         if(!$resultado){
-            echo "Fallo al consultar las actividades del día de hoy";
+
+            print("<script> alert('Fallo al consultar las actividades del día de hoy'); </script>");
+
         }else{
             return $resultado;
             $resultado->close();
@@ -35,7 +37,8 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
         if(!$resultado){
-            echo "Fallo al consultar las actividades";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
+
         }else{
             return $resultado;
             $resultado->close();
@@ -48,7 +51,8 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
         if(!$resultado){
-            echo "Fallo al consultar las actividades";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
+
         }else{
             return $resultado;
             $resultado->close();
@@ -61,7 +65,7 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
         if(!$resultado){
-            echo "Fallo al consultar la actividad";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
         }else{
             return $resultado;
             $resultado->close();
@@ -74,7 +78,7 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta;
 
         if(!$resultado){
-            echo "Fallo al registrar las actividades <br>";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
         }else{
             return $resultado;
             $resultado->close();
@@ -87,7 +91,7 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta;
 
         if(!$resultado){
-            echo "Fallo al editar las actividades";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
         }else{
             return $resultado;
             $resultado->close();
@@ -100,7 +104,7 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta;
 
         if(!$resultado){
-            echo "Fallo al eliminar la actividad";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
         }else{
             return $resultado;
             $resultado->close();
@@ -113,7 +117,7 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
     
         if(!$resultado){
-            echo "Fallo al consultar reporte de las actividades";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
         }else{
             return $resultado;
             $resultado->close();
