@@ -8,7 +8,7 @@ class Actividad extends modeloCredencialesBD{
     private $hora;
     private $ubicacion;
     private $email;
-    private $repetir;
+    private $repetirAct;
     private $tipoAct;
 
     public function __construct(){
@@ -22,7 +22,50 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
         if(!$resultado){
-            echo "Fallo al consultar las actividades";
+
+            print("<script> alert('Fallo al consultar las actividades del día de hoy'); </script>");
+
+        }else{
+            return $resultado;
+            $resultado->close();
+            $this->_db->close();
+        }
+    }
+    public function consultarTodasAct(){
+        $instruccion = "CALL consultar_todas()";
+        $consulta = $this->_db->query($instruccion);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+        if(!$resultado){
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
+
+        }else{
+            return $resultado;
+            $resultado->close();
+            $this->_db->close();
+        }
+    }
+    public function consultarTodo(){
+        $instruccion = "CALL mostrar_todo_act()";
+        $consulta = $this->_db->query($instruccion);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+        if(!$resultado){
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
+
+        }else{
+            return $resultado;
+            $resultado->close();
+            $this->_db->close();
+        }
+    }
+    public function consultarUnaAct($id){
+        $instruccion = "CALL consultar_una_act($id)";
+        $consulta = $this->_db->query($instruccion);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+        if(!$resultado){
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
         }else{
             return $resultado;
             $resultado->close();
@@ -35,20 +78,7 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta;
 
         if(!$resultado){
-            echo "Fallo al registrar las actividades <br>";
-        }else{
-            return $resultado;
-            $resultado->close();
-            $this->_db->close();
-        }
-    }
-    public function consultarUnaAct($id){
-        $instruccion = "CALL consultar_Una_Act($id)";
-        $consulta = $this->_db->query($instruccion);
-        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
-
-        if(!$resultado){
-            echo "Fallo al consultar la actividad";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
         }else{
             return $resultado;
             $resultado->close();
@@ -61,7 +91,7 @@ class Actividad extends modeloCredencialesBD{
         $resultado = $consulta;
 
         if(!$resultado){
-            echo "Fallo al editar las actividades";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
         }else{
             return $resultado;
             $resultado->close();
@@ -69,25 +99,25 @@ class Actividad extends modeloCredencialesBD{
         }
     }
     public function eliminarAct($idAct){
-        $instruccion = "CALL eliminarAct(".$idAct.")";
+        $instruccion = "CALL eliminartAct(".$idAct.")";
         $consulta = $this->_db->query($instruccion);
         $resultado = $consulta;
 
         if(!$resultado){
-            echo "Fallo al eliminar la actividade";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
         }else{
             return $resultado;
             $resultado->close();
             $this->_db->close();
         }
     }
-    public function filtrar_actividades($campo, $valor){
-        $instruccion = "CALL filtrarActividades('".$campo."','".$valor."')";
+    public function  mostrar_reporte($condiCampo, $valorF, $valorT){
+        $instruccion = "CALL mostrarReportes('".$condiCampo."', ".$valorF.", ".$valorT.");";
         $consulta = $this->_db->query($instruccion);
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
-
+    
         if(!$resultado){
-            echo "Fallo al consultar las actividades";
+            print("<script> alert('Fallo al consultar las actividades'); </script>");
         }else{
             return $resultado;
             $resultado->close();
