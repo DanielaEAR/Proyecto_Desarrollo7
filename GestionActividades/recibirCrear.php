@@ -12,9 +12,9 @@ require_once('../class/Actividad.php');
        array_key_exists('email', $_POST) && array_key_exists('tiposA', $_POST)){
 
         $obj_act = new Actividad();
-        $registrar = $obj_act->registrarAct($_REQUEST['titulo'], $_REQUEST['fecha'], $_REQUEST['hora'], $_REQUEST['ubicacion'], 
+        $registrarActividad = $obj_act->registrarAct($_REQUEST['titulo'], $_REQUEST['fecha'], $_REQUEST['hora'], $_REQUEST['ubicacion'], 
                                             $_REQUEST['email'], $valorRes, $_REQUEST['tiposA']);
-        if($registrar > 0){
+        if($registrarActividad > 0){
         //Se ingresó correctamente
             print("<script> alert('Se ingresó correctamente'); </script>");
             //Reedirecciona hacia la página principal de gestión de actividades
