@@ -13,9 +13,9 @@ require_once('../class/Actividad.php');
         array_key_exists('email', $_POST) && array_key_exists('tiposA', $_POST) && $_REQUEST['tiposA'] != 0){
 
         $obj_editarAct = new Actividad();
-        $editar = $obj_editarAct->editarAct($_REQUEST['id'], $_REQUEST['titulo'], $_REQUEST['fecha'], $_REQUEST['hora'], 
+        $editarActividad = $obj_editarAct->editarAct($_REQUEST['id'], $_REQUEST['titulo'], $_REQUEST['fecha'], $_REQUEST['hora'], 
                                                 $_REQUEST['ubicacion'], $_REQUEST['email'], $valorRes, $_REQUEST['tiposA']);
-        if($editar > 0){
+        if($editarActividad > 0){
         //Se ingresó correctamente
             print("<script> alert('Se Actualizó correctamente'); </script>");
             //Reedirecciona hacia la página principal de gestión de actividades
