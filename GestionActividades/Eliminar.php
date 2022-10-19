@@ -1,8 +1,9 @@
 <?php
 require_once('../class/Actividad.php');
-        $idAct = $_GET['id'];
+
+        $idActividad = $_GET['id'];
         $obj_eliminarAct = new Actividad();
-        $eliminar = $obj_eliminarAct->eliminarAct($idAct);
+        $eliminar = $obj_eliminarAct->eliminarAct($idActividad);
         
         if($eliminar > 0){
         //Se ingresó correctamente
